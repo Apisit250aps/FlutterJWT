@@ -31,9 +31,7 @@ class _LoginFormState extends State<LoginForm> {
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> responseData = jsonDecode(response.body);
-      final String token = responseData[
-          'token']; // Assuming the JWT token is returned under 'token'
-
+      final String token = responseData['token'];
       // Decode the JWT token
       Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
 
@@ -84,7 +82,6 @@ class _LoginFormState extends State<LoginForm> {
                   Text(token),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    child: Text("Accept"),
                     style: ElevatedButton.styleFrom(
                       // primary: Color(0xFFEA4C89),
                       shape: RoundedRectangleBorder(
@@ -98,6 +95,7 @@ class _LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
+                    child: const Text("Accept"),
                   ),
                 ],
               ),
@@ -150,7 +148,6 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    child: Text('Accept'),
                     style: ElevatedButton.styleFrom(
                       // primary: Color(0xFFEA4C89),
                       shape: RoundedRectangleBorder(
@@ -162,6 +159,7 @@ class _LoginFormState extends State<LoginForm> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
+                    child: const Text('Accept'),
                   ),
                 ],
               ),
